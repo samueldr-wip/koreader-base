@@ -117,7 +117,6 @@ $(MUPDF_LIB) $(MUPDF_DIR)/include: $(JPEG_LIB) \
 		$(HARFBUZZ_LIB) $(HARFBUZZ_DIR)/include \
 		$(LIBWEBP_LIB) $(LIBWEBP_DIR)/include \
 		$(ZLIB) $(AES_LIB) $(THIRDPARTY_DIR)/mupdf/*.*
-	-rm -rf $(MUPDF_BUILD_DIR)
 	install -d $(MUPDF_BUILD_DIR)
 	cd $(MUPDF_BUILD_DIR) && \
 		$(CMAKE) $(CMAKE_FLAGS) -DHOSTCFLAGS="$(HOSTCFLAGS)" -DHOSTCC="$(HOSTCC)" \
@@ -306,7 +305,6 @@ $(POPEN_NOSHELL_LIB): $(THIRDPARTY_DIR)/popen-noshell/*.*
 # k2pdfopt depends on leptonica and tesseract
 $(LEPTONICA_DIR): $(THIRDPARTY_DIR)/leptonica/*.*
 	install -d $(LEPTONICA_BUILD_DIR)
-	rm -rf $(LEPTONICA_DIR)
 	cd $(LEPTONICA_BUILD_DIR) && \
 		$(CMAKE) $(CMAKE_FLAGS) \
 		$(if $(ARM_GLIBC_GTE_2_22),-DARM_GLIBC_GTE_2_22=on,) \
@@ -315,7 +313,6 @@ $(LEPTONICA_DIR): $(THIRDPARTY_DIR)/leptonica/*.*
 
 $(TESSERACT_DIR): $(THIRDPARTY_DIR)/tesseract/*.*
 	install -d $(TESSERACT_BUILD_DIR)
-	rm -rf $(TESSERACT_DIR)
 	cd $(TESSERACT_BUILD_DIR) && \
 		$(CMAKE) $(CMAKE_FLAGS) $(CURDIR)/$(THIRDPARTY_DIR)/tesseract && \
 		$(CMAKE_MAKE_PROGRAM) $(CMAKE_MAKE_PROGRAM_FLAGS)
@@ -582,7 +579,6 @@ $(OUTPUT_DIR)/data/KoboUSBMS.tar.gz: $(THIRDPARTY_DIR)/kobo-usbms/*.*
 # ===========================================================================
 # common lua library for networking
 $(LUASOCKET): $(THIRDPARTY_DIR)/luasocket/*.*
-	-rm -rf $(LUASOCKET) $(LUASOCKET_BUILD_DIR)
 	install -d $(LUASOCKET_BUILD_DIR)
 	cd $(LUASOCKET_BUILD_DIR) && \
 		$(CMAKE) $(CMAKE_FLAGS) -DPLAT="$(if $(WIN32),mingw,$(if $(DARWIN),macosx,linux))" \
