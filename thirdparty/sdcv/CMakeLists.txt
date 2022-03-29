@@ -91,15 +91,15 @@ ko_write_gitclone_script(
     ${SOURCE_DIR}
 )
 
-download_project(
-    PROJ ${PROJECT_NAME}
-    GIT_REPOSITORY
-    https://github.com/Dushistov/sdcv.git
-    GIT_TAG
-    ${SDCV_GIT_COMMIT}
-    #DOWNLOAD_COMMAND ${CMAKE_COMMAND} -P ${GIT_CLONE_SCRIPT_FILENAME}
-    PATCH_COMMAND COMMAND ${PATCH_CMD1} COMMAND ${PATCH_CMD2}
-)
+#download_project(
+#    PROJ ${PROJECT_NAME}
+#    GIT_REPOSITORY
+#    https://github.com/Dushistov/sdcv.git
+#    GIT_TAG
+#    ${SDCV_GIT_COMMIT}
+#    #DOWNLOAD_COMMAND ${CMAKE_COMMAND} -P ${GIT_CLONE_SCRIPT_FILENAME}
+#    PATCH_COMMAND COMMAND ${PATCH_CMD1} COMMAND ${PATCH_CMD2}
+#)
 
 add_subdirectory("${CMAKE_BINARY_DIR}/sdcv-src"
                  "${CMAKE_BINARY_DIR}/sdcv-build")
