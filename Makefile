@@ -25,7 +25,7 @@ all: $(OUTPUT_DIR)/libs $(if $(ANDROID),,$(LUAJIT)) \
 		$(LUA_HTMLPARSER_ROCK) \
 		$(LPEG_ROCK) \
 		$(LUA_RAPIDJSON_ROCK) \
-		$(LUA_SPORE_ROCK) \
+		$(if $(ANDROID),$(LPEG_DYNLIB) $(LPEG_RE),) \
 		$(if $(WIN32),,$(ZMQ_LIB) $(CZMQ_LIB)) \
 		$(if $(WIN32),,$(OUTPUT_DIR)/sdcv) \
 		$(if $(MACOS),$(OUTPUT_DIR)/koreader,) \
