@@ -1,4 +1,4 @@
-SHELL:=/bin/bash
+SHELL:=bash
 
 # Sdk tools 26.1.1
 SDK_TARBALL=sdk-tools-linux-4333796.zip
